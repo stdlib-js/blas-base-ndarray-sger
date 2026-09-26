@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,31 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { float32ndarray } from '@stdlib/types/ndarray';
 
 /**
-* BLAS level 2 routine to perform the rank 1 operation `A = alpha*x*y^T + A`.
+* Performs the rank 1 operation `A = alpha*x*y^T + A`, where `alpha` is a scalar, `x` and `y` are one-dimensional ndarrays, and `A` is an `M` by `N` matrix.
 *
-* @module @stdlib/blas-base-ndarray-sger
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray corresponding to `x`.
+*     -   a one-dimensional input ndarray corresponding to `y`.
+*     -   a two-dimensional input/output ndarray corresponding to `A`.
+*     -   a zero-dimensional ndarray containing a scalar constant corresponding to `alpha`.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var Float32Matrix = require( '@stdlib/ndarray-matrix-float32' );
 * var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var sger = require( '@stdlib/blas-base-ndarray-sger' );
 *
 * var x = new Float32Vector( [ 1.0, 2.0 ] );
 * var y = new Float32Vector( [ 3.0, 4.0, 5.0 ] );
@@ -37,18 +50,15 @@
 *     'dtype': 'float32'
 * });
 *
-* var out = sger( [ x, y, A, alpha ] );
+* var z = sger( [ x, y, A, alpha ] );
 * // returns <ndarray>[ [ 4.0, 6.0, 8.0 ], [ 10.0, 13.0, 16.0 ] ]
 *
-* var bool = ( out === A );
+* var bool = ( z === A );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function sger( arrays: [ float32ndarray, float32ndarray, float32ndarray, float32ndarray ] ): float32ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = sger;
