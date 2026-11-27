@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,20 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var getShape = require( '@stdlib/ndarray-base-shape' );
-var getStrides = require( '@stdlib/ndarray-base-strides' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
-var strided = require( '@stdlib/blas-base-sger' ).ndarray;
-
-
-// MAIN //
+import { float32ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Performs the rank 1 operation `A = alpha*x*y^T + A`, where `alpha` is a scalar, `x` and `y` are one-dimensional ndarrays, and `A` is an `M` by `N` matrix.
@@ -43,8 +34,8 @@ var strided = require( '@stdlib/blas-base-sger' ).ndarray;
 *     -   a two-dimensional input/output ndarray corresponding to `A`.
 *     -   a zero-dimensional ndarray containing a scalar constant corresponding to `alpha`.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {Object} output ndarray
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var Float32Matrix = require( '@stdlib/ndarray-matrix-float32' );
@@ -63,29 +54,9 @@ var strided = require( '@stdlib/blas-base-sger' ).ndarray;
 * var bool = ( z === A );
 * // returns true
 */
-function sger( arrays ) {
-	var alpha;
-	var sh;
-	var st;
-	var A;
-	var x;
-	var y;
-
-	x = arrays[ 0 ];
-	y = arrays[ 1 ];
-	A = arrays[ 2 ];
-
-	alpha = ndarraylike2scalar( arrays[ 3 ] );
-
-	sh = getShape( A, false );
-	st = getStrides( A, false );
-
-	strided( sh[ 0 ], sh[ 1 ], alpha, getData( x ), getStride( x, 0 ), getOffset( x ), getData( y ), getStride( y, 0 ), getOffset( y ), getData( A ), st[ 0 ], st[ 1 ], getOffset( A ) );
-
-	return A;
-}
+declare function sger( arrays: [ float32ndarray, float32ndarray, float32ndarray, float32ndarray ] ): float32ndarray;
 
 
 // EXPORTS //
 
-module.exports = sger;
+export = sger;
