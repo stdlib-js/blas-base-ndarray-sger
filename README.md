@@ -41,38 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-ndarray-sger
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-sger = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ndarray-sger@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var sger = require( 'path/to/vendor/umd/blas-base-ndarray-sger/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ndarray-sger@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.sger;
-})();
-</script>
+var sger = require( '@stdlib/blas-base-ndarray-sger' );
 ```
 
 #### sger( arrays )
@@ -82,15 +76,13 @@ Performs the rank 1 operation `A = alpha*x*y^T + A`, where `alpha` is a scalar, 
 ```javascript
 var Float32Matrix = require( '@stdlib/ndarray-matrix-float32' );
 var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
-var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
+var Float32Tensor0D = require( '@stdlib/ndarray-tensor0d-float32' );
 
 var x = new Float32Vector( [ 1.0, 2.0 ] );
 var y = new Float32Vector( [ 3.0, 4.0, 5.0 ] );
 var A = new Float32Matrix( [ [ 1.0, 2.0, 3.0 ], [ 4.0, 5.0, 6.0 ] ] );
 
-var alpha = scalar2ndarray( 1.0, {
-    'dtype': 'float32'
-});
+var alpha = new Float32Tensor0D( 1.0 );
 
 var out = sger( [ x, y, A, alpha ] );
 // returns <ndarray>[ [ 4.0, 6.0, 8.0 ], [ 10.0, 13.0, 16.0 ] ]
@@ -124,16 +116,11 @@ The function has the following parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ndarray-sger@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-discrete-uniform' );
+var Float32Tensor0D = require( '@stdlib/ndarray-tensor0d-float32' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var sger = require( '@stdlib/blas-base-ndarray-sger' );
 
 var opts = {
     'dtype': 'float32'
@@ -143,15 +130,10 @@ var x = discreteUniform( [ 3 ], 0, 10, opts );
 var y = discreteUniform( [ 4 ], 0, 10, opts );
 var A = discreteUniform( [ 3, 4 ], 0, 10, opts );
 
-var alpha = scalar2ndarray( 1.0, opts );
+var alpha = new Float32Tensor0D( 1.0 );
 
 var out = sger( [ x, y, A, alpha ] );
 console.log( ndarray2array( out ) );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
