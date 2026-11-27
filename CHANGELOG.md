@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-11-13)
+## Unreleased (2026-11-27)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`56687b1`](https://github.com/stdlib-js/stdlib/commit/56687b1e25b8d509d1c842aa825fbd2f8cff2f87) - **docs:** use dedicated zero-dimensional tensor constructor in `blas/base/ndarray/sger` [(#16848)](https://github.com/stdlib-js/stdlib/pull/16848) _(by Aryan Sachin)_
 -   [`75cbfe8`](https://github.com/stdlib-js/stdlib/commit/75cbfe8618e8d81293eefba72f9a651e786f37a0) - **bench:** fix description and update variable names in `blas/base/ndarray` [(#14261)](https://github.com/stdlib-js/stdlib/pull/14261) _(by Philipp Burckhardt)_
 -   [`2780757`](https://github.com/stdlib-js/stdlib/commit/2780757ca6daae57598a53022837a497e55b8d41) - **style:** re-enable lint rule [(#13554)](https://github.com/stdlib-js/stdlib/pull/13554) _(by Philipp Burckhardt)_
 -   [`a5c8a06`](https://github.com/stdlib-js/stdlib/commit/a5c8a0671deeb98003b9cce8348331db3a3dd4e2) - **feat:** add `blas/base/ndarray/sger` [(#12699)](https://github.com/stdlib-js/stdlib/pull/12699) _(by Kaustubh Patange)_
@@ -36,8 +37,9 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
+-   Aryan Sachin
 -   Kaustubh Patange
 -   Philipp Burckhardt
 

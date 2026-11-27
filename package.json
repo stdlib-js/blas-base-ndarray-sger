@@ -53,7 +53,7 @@
     "@stdlib/math-base-special-pow": "^0.3.1",
     "@stdlib/ndarray-base-ctor": "^0.3.1",
     "@stdlib/ndarray-data-buffer": "^0.2.3",
-    "@stdlib/ndarray-from-scalar": "^0.3.1",
+    "@stdlib/ndarray-tensor0d-float32": "github:stdlib-js/ndarray-tensor0d-float32#main",
     "@stdlib/ndarray-to-array": "^0.2.2",
     "@stdlib/random-discrete-uniform": "^0.1.1",
     "@stdlib/random-uniform": "^0.1.1",
